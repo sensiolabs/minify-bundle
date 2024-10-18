@@ -110,8 +110,8 @@ bundle only in the desired environment(s).
 # config/packages/sensiolabs_minify.yaml
 sensiolabs_minify:
   asset_mapper:
-	  
-	# Minify CSS and JS files  
+
+    # Minify CSS and JS files  
     types: 
       css: true
       js:  true
@@ -128,7 +128,7 @@ sensiolabs_minify:
     ignore_paths: 
       - 'admin/*'
       - '*.min.js'
-	
+
     # Exclude vendor assets
     ignore_vendor: true
 ```
@@ -143,13 +143,13 @@ sensiolabs_minify:
 # config/packages/sensiolabs_minify.yaml
 sensiolabs_minify:
   minify:
-	
+
     # Auto-detect the local binary 
     local_binary: 'auto'
 
     # Specify the local binary path
     # local_binary: "/usr/local/sbin/minify"
-	
+
     # Or set false to disable
     # local_binary: false
 ```
@@ -160,10 +160,10 @@ sensiolabs_minify:
 # config/packages/sensiolabs_minify.yaml
 sensiolabs_minify:
   minify:
-  
+
     # Enable automatic download from GitHub
     download_binary: true
-	
+
     # Directory to store the downloaded binary
     download_directory: '%kernel.project_dir%/var/minify'
 
