@@ -1,6 +1,6 @@
 {
     "name": "sensiolabs/minify-bundle",
-    "description": "Minify assets (CSS, JS, SVG, ..) Symfony",
+    "description": "Assets Minifier (CSS, JS) for Symfony & Minify integration in Asset Mapper",
     "license": "MIT",
     "homepage": "https://github.com/sensiolabs/minify-bundle",
     "type": "symfony-bundle",
