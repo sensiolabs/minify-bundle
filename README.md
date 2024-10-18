@@ -13,6 +13,10 @@
 </div>
 
 
+<!-- ☘️ If you find this bundle helpful, feel free to show your appreciation by starring the repository on GitHub or 
+sending a message to the author. Thank you! ☘️ -->
+
+
 ## Minify integration
 
 SensioLabs Minify Bundle integrates [Minify](https://github.com/tdewolff/minify) into Symfony Asset Mapper.
@@ -29,9 +33,9 @@ SensioLabs Minify Bundle integrates [Minify](https://github.com/tdewolff/minify)
 
 🎯 Automatically `minify` assets during the build process.   
 
-📦📦 Compress and store minified assets in the `cache` directory. 
+📦📦 Stores minified assets in the Symfony `cache`. 
 
-🌿🌿🌿 Download the Minify binary `automatically` from the repository.
+🌿🌿🌿 Download the Minify binary `automatically` from Github.
  
 ## Minification
 
@@ -44,7 +48,6 @@ SensioLabs Minify Bundle integrates [Minify](https://github.com/tdewolff/minify)
 | [Video.js][5]          | 2.3 MB | 0.7 MB | -71% | ⬜️⬜️⬜️⬜️⬜️⬜️🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩 | 42 ms |
 | [w3c.org js][7]        |  44 kB |  19 kB | -57% | ⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩 |  6 ms |
 
-
 ### CSS
 
 | Asset                 | Before |  After | Diff | Compression                               | Time |
@@ -53,7 +56,6 @@ SensioLabs Minify Bundle integrates [Minify](https://github.com/tdewolff/minify)
 | [Bootstrap.css][4]    | 281 kB | 232 kB | -18% | ⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️🟩🟩🟩🟩 | 9 ms |
 | [Video-js.css][6]     |  53 kB |  47 kB | -12% | ⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜⬜️⬜️⬜️⬜️⬜️⬜️⬜️️🟩🟩 | 4 ms |
 | [w3c.org css][8]      | 111 kB |  70 kB | -37% | ⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️⬜️🟩🟩🟩🟩🟩🟩🟩🟩 | 5 ms |
-
 
 ## Installation
 
