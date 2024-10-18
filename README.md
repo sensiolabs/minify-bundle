@@ -4,7 +4,7 @@
 <div align="center"><pre>composer require sensiolabs/minify-bundle</pre></div>
 <div align="center">
 
-[![PHP Version](https://img.shields.io/badge/%C2%A0php-%3E%3D%208.3-777BB4.svg?logo=php&logoColor=white)](https://github.com/sensiolabs/minify-bundle/blob/main/composer.json)
+[![PHP Version](https://img.shields.io/badge/%C2%A0php-%3E%3D%208.2-777BB4.svg?logo=php&logoColor=white)](https://github.com/sensiolabs/minify-bundle/blob/main/composer.json)
 [![CI](https://github.com/sensiolabs/minify-bundle/actions/workflows/CI.yaml/badge.svg?color=68c22e)](https://github.com/sensiolabs/minify-bundle/actions)
 [![Release](https://img.shields.io/github/v/release/sensiolabs/minify-bundle?color=31a6ce)](https://github.com/sensiolabs/minify-bundle/releases)
 [![Packagist Downloads](https://img.shields.io/packagist/dt/sensiolabs/minify-bundle?color=ce8531)](https://github.com/sensiolabs/minify-bundle/)
