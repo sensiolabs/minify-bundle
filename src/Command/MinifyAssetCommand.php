@@ -62,7 +62,7 @@ You can also specify the type of the asset with the <comment>--type</comment> op
 
 <fg=bright-blue>INFORMATION</>
 If you're using AssetMapper, the assets will be minified automatically
-during the "<comment>asset-map:deploy</comment>" command.                    
+during the "<comment>asset-map:compile</comment>" command.
 EOF
             );
     }

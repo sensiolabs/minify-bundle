@@ -12,10 +12,8 @@
 
 </div>
 
-
 <!-- ☘️ If you find this bundle helpful, feel free to show your appreciation by starring the repository on GitHub or 
 sending a message to the author. Thank you! ☘️ -->
-
 
 ## Minify integration
 
@@ -99,90 +97,92 @@ return [
 Depending on your deployment process, you might want to enable the 
 bundle only in the desired environment(s).
 
+## Usage
 
-## Configuration
+If you use [AssetMapper][9], run the following command to minify all the assets:
 
-### AssetMapper Settings
-
-#### Asset types
-
-```yaml
-# config/packages/sensiolabs_minify.yaml
-sensiolabs_minify:
-  asset_mapper:
-
-    # Minify CSS and JS files  
-    types: 
-      css: true
-      js:  true
+```shell
+php bin/console asset-map:compile
 ```
 
-#### Exclude files
-
-```yaml
-# config/packages/sensiolabs_minify.yaml
-sensiolabs_minify:
-  asset_mapper:
-
-    # Exclude files
-    ignore_paths: 
-      - 'admin/*'
-      - '*.min.js'
-
-    # Exclude vendor assets
-    ignore_vendor: true
-```
-
-
-### Minify Binary
-
-
-#### Local binary
-
-```yaml
-# config/packages/sensiolabs_minify.yaml
-sensiolabs_minify:
-  minify:
-
-    # Auto-detect the local binary 
-    local_binary: 'auto'
-
-    # Specify the local binary path
-    # local_binary: "/usr/local/sbin/minify"
-
-    # Or set false to disable
-    # local_binary: false
-```
-
-#### Automatic download 
-
-```yaml
-# config/packages/sensiolabs_minify.yaml
-sensiolabs_minify:
-  minify:
-
-    # Enable automatic download from GitHub
-    download_binary: true
-
-    # Directory to store the downloaded binary
-    download_directory: '%kernel.project_dir%/var/minify'
-
-```
-
-## Console
+This command is usually run when [serving assets in production][10] and the
+SensioLabs Minify Bundle will hook into it to minify all assets while copying them.
 
 ### Command Line
 
-#### Install Minify locally
+You can also minify assets manually with the command line. First, make sure that
+the binary file used to minify assets is properly installed in your computer:
 
 ```shell
 php bin/console minify:install
 ```
 
-#### Minify assets
+Then, run the following command to minify assets:
 
 ```shell
+# this outputs the result in the console
+php bin/console minify:assets css/main.css
+
+# this will write the output into the 'main.min.css' file
+# (the given output file is created / overwritten if needed)
 php bin/console minify:assets css/main.css css/main.min.css
+```
+
+## Configuration
+
+### AssetMapper Settings
+
+```yaml
+# config/packages/sensiolabs_minify.yaml
+sensiolabs_minify:
+    asset_mapper:
+        # you can minify only CSS files, only JS files or both
+        types:
+            css: true # (default: true)
+            js:  true # (default: true)
+
+    # a list of assets to exclude from minfication (default: [])
+    # the values of the list can be any shell wildcard patterns
+    ignore_paths:
+        - 'admin/*'
+        - '*.min.js'
+
+    # whethere to exclude the assets stored in vendor/ from minification;
+    # these assets are usually already minified, so it's common to ignore them
+    ignore_vendor: true # (default: true)
+```
+
+### Minify Binary
+
+The minification is performed by a binary file that can be installed on your
+computer/server or downloaded automatically by the bundle. This is the default
+configuration used by the bundle:
+
+```yaml
+# config/packages/sensiolabs_minify.yaml
+minify:
+    # this disables the usage of local binaries
+    local_binary: false
+
+    # if TRUE, the bundle will download the binary from GitHub
+    download_binary: '%kernel.debug%'
+
+    # the local path where the downloaded binary is stored
+    download_directory: '%kernel.project_dir%/var/minify'
+```
+
+You can customize this configuration to use a local binary:
+
+```yaml
+# config/packages/sensiolabs_minify.yaml
+sensiolabs_minify:
+    minify:
+        # set it to 'auto' to let the bundle try to find the location of the binary
+        local_binary: 'auto'
+
+        #  you can also define the path to the binary explicitly, but this won't work
+        # if you run the application in multime servers with different binary locations
+        local_binary: "/usr/local/sbin/minify"
 ```
 
 ## Credits
@@ -208,7 +208,6 @@ Special thanks to the Symfony community for their contributions and feedback.
 
 The [SensioLabs Minify Bundle](https://github.com/sensiolabs/minify-bundle) is released under the [MIT license](LICENSE).
 
-
 [1]: https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.js
 [3]: https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.js
 [5]: https://cdn.jsdelivr.net/npm/video.js@8.18.1/dist/video.js
@@ -217,3 +216,5 @@ The [SensioLabs Minify Bundle](https://github.com/sensiolabs/minify-bundle) is r
 [4]: https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.css
 [6]: https://cdn.jsdelivr.net/npm/video.js@8.18.1/dist/video-js.css
 [8]: https://github.com/w3c/w3c-website-templates-bundle/blob/main/public/dist/assets/styles/core.css
+[9]: https://symfony.com/doc/current/frontend/asset_mapper.html
+[10]: https://symfony.com/doc/current/frontend/asset_mapper.html#serving-assets-in-dev-vs-prod
