@@ -141,15 +141,15 @@ sensiolabs_minify:
             css: true # (default: true)
             js:  true # (default: true)
 
-    # a list of assets to exclude from minfication (default: [])
-    # the values of the list can be any shell wildcard patterns
-    ignore_paths:
-        - 'admin/*'
-        - '*.min.js'
+        # a list of assets to exclude from minfication (default: [])
+        # the values of the list can be any shell wildcard patterns
+        ignore_paths:
+            - 'admin/*'
+            - '*.min.js'
 
-    # whethere to exclude the assets stored in vendor/ from minification;
-    # these assets are usually already minified, so it's common to ignore them
-    ignore_vendor: true # (default: true)
+        # whethere to exclude the assets stored in vendor/ from minification;
+        # these assets are usually already minified, so it's common to ignore them
+        ignore_vendor: true # (default: true)
 ```
 
 ### Minify Binary
@@ -160,15 +160,18 @@ configuration used by the bundle:
 
 ```yaml
 # config/packages/sensiolabs_minify.yaml
-minify:
-    # this disables the usage of local binaries
-    local_binary: false
+sensiolabs_minify:
+    # ...
 
-    # if TRUE, the bundle will download the binary from GitHub
-    download_binary: '%kernel.debug%'
+    minify:
+        # this disables the usage of local binaries
+        local_binary: false
 
-    # the local path where the downloaded binary is stored
-    download_directory: '%kernel.project_dir%/var/minify'
+        # if TRUE, the bundle will download the binary from GitHub
+        download_binary: '%kernel.debug%'
+
+        # the local path where the downloaded binary is stored
+        download_directory: '%kernel.project_dir%/var/minify'
 ```
 
 You can customize this configuration to use a local binary:
@@ -176,6 +179,8 @@ You can customize this configuration to use a local binary:
 ```yaml
 # config/packages/sensiolabs_minify.yaml
 sensiolabs_minify:
+    # ...
+
     minify:
         # set it to 'auto' to let the bundle try to find the location of the binary
         local_binary: 'auto'
