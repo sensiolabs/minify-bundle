@@ -185,9 +185,9 @@ sensiolabs_minify:
         # set it to 'auto' to let the bundle try to find the location of the binary
         local_binary: 'auto'
 
-        #  you can also define the path to the binary explicitly, but this won't work
+        # you can also define the path to the binary explicitly, but this won't work
         # if you run the application in multiple servers with different binary locations
-        local_binary: "/usr/local/sbin/minify"
+        local_binary: "/usr/local/bin/minify"
 ```
 
 ## Credits
