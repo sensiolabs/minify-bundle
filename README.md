@@ -121,11 +121,11 @@ Then, run the following command to minify assets:
 
 ```shell
 # this outputs the result in the console
-php bin/console minify:assets css/main.css
+php bin/console minify:asset css/main.css
 
 # this will write the output into the 'main.min.css' file
 # (the given output file is created / overwritten if needed)
-php bin/console minify:assets css/main.css css/main.min.css
+php bin/console minify:asset css/main.css css/main.min.css
 ```
 
 ## Configuration
