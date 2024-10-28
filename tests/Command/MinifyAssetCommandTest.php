@@ -65,6 +65,20 @@ class MinifyAssetCommandTest extends TestCase
         $this->assertStringContainsString('Cannot read file', $tester->getDisplay());
     }
 
+    public function testMinifyAssetCommandFailsWhenInputFileIsNotCssOrJS(): void
+    {
+        $minifier = $this->createMock(MinifierInterface::class);
+
+        $command = new MinifyAssetCommand($minifier, __DIR__.'/../Fixtures');
+        $tester = new CommandTester($command);
+
+        $tester->execute(['input' => 'MinifyBundleTestKernel.php']);
+        $this->assertSame(Command::FAILURE, $tester->getStatusCode());
+        $display = $tester->getDisplay();
+        $this->assertStringContainsString('The type of', $display);
+        $this->assertStringContainsString('TestKernel.php" is "php", it must be "css" or "js".', $display);
+    }
+
     public function testMinifyAssetCommandFailsWhenOutputFileIsNotWritable(): void
     {
         $minifier = $this->createMock(MinifierInterface::class);

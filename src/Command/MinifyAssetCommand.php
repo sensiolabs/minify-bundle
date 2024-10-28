@@ -82,8 +82,8 @@ EOF
 
             return Command::FAILURE;
         }
-        /** @var string $inputArg */
-        $inputArg = file_get_contents($inputArg);
+        /** @var string $inputContent */
+        $inputContent = file_get_contents($inputArg);
 
         /** @var string|null $outputArg */
         $outputArg = $input->getArgument('output');
@@ -94,7 +94,19 @@ EOF
         /** @var 'css'|'js' $typeArg */
         $typeArg = $input->getOption('type') ?? pathinfo($inputArg, PATHINFO_EXTENSION);
 
-        $output = $this->minifier->minify($inputArg, $typeArg);
+        if (!in_array($typeArg, [MinifierInterface::TYPE_CSS, MinifierInterface::TYPE_JS], true)) {
+            $io->error(sprintf(
+                'The type of "%s" is "%s", it must be "%s" or "%s".',
+                $inputArg,
+                $typeArg,
+                MinifierInterface::TYPE_CSS,
+                MinifierInterface::TYPE_JS,
+            ));
+
+            return Command::FAILURE;
+        }
+
+        $output = $this->minifier->minify($inputContent, $typeArg);
 
         if (null === $outputArg) {
             $io->text($output);
