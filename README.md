@@ -50,7 +50,7 @@ Even gzip compression is more efficient on minified assets (see metrics below).
 
 <details>
 
-<summary> See transfert comparaison (gzip) </summary>
+<summary> See transfert comparison (gzip) </summary>
 
 | File            |   Original |  Minified |  Ratio |   Gain |          Compression |
 |-----------------|-----------:|----------:|-------:|-------:|---------------------:|
@@ -72,7 +72,7 @@ Even gzip compression is more efficient on minified assets (see metrics below).
 
 <details>
 
-<summary> See transfert comparaison (gzip) </summary>
+<summary> See transfert comparison (gzip) </summary>
 
 | File             |   Original |  Minified |  Ratio |   Gain |          Compression |
 |------------------|-----------:|----------:|-------:|-------:|---------------------:|
