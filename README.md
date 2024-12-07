@@ -50,7 +50,7 @@ Even gzip compression is more efficient on minified assets (see metrics below).
 
 <details>
 
-<summary> See transfert comparison (gzip) </summary>
+<summary> See transfer comparison (gzip) </summary>
 
 | File            |   Original |  Minified |  Ratio |   Gain |          Compression |
 |-----------------|-----------:|----------:|-------:|-------:|---------------------:|
@@ -72,7 +72,7 @@ Even gzip compression is more efficient on minified assets (see metrics below).
 
 <details>
 
-<summary> See transfert comparison (gzip) </summary>
+<summary> See transfer comparison (gzip) </summary>
 
 | File             |   Original |  Minified |  Ratio |   Gain |          Compression |
 |------------------|-----------:|----------:|-------:|-------:|---------------------:|
@@ -175,14 +175,14 @@ sensiolabs_minify:
             css: true # (default: true)
             js:  true # (default: true)
 
-        # a list of assets to exclude from minfication (default: [])
+        # a list of assets to exclude from minification (default: [])
         # the values of the list can be any shell wildcard patterns
         ignore_paths:
             - 'admin/*'
             - '*.min.js'
 
-        # whethere to exclude the assets stored in vendor/ from minification;
-        # these assets are usually already minified, so it's common to ignore them
+        # whether to exclude the assets stored in vendor/ from minification;
+        # these assets are usually pre-minified, so it's common to exclude them
         ignore_vendor: true # (default: true)
 ```
 
