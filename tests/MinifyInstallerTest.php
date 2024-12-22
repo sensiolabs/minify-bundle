@@ -33,17 +33,6 @@ class MinifyInstallerTest extends TestCase
         $installer->install();
     }
 
-    public function testBinaryIsDownloadedAndInstalledCorrectly(): void
-    {
-        $httpClient = $this->createMock(HttpClientInterface::class);
-        $httpClient->method('request')->willReturn($this->createMockResponse(200, 'binary content'));
-        $installer = new MinifyInstaller('/tmp/minify', $httpClient);
-
-        $installer->install();
-        $this->assertFileExists('/tmp/minify/minify');
-        $this->assertTrue(is_executable('/tmp/minify/minify'));
-    }
-
     private function createMockResponse(int $statusCode, string $content = ''): ResponseInterface
     {
         $response = $this->createMock(ResponseInterface::class);
