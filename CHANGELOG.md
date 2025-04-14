@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.1.0
+
+- Support for PHP 8.1.0 or higher
+
 ## 1.0.0
 
 - First stable release

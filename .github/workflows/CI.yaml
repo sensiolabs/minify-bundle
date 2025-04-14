@@ -93,6 +93,8 @@ jobs:
     strategy:
       matrix:
         include:
+          - php-version: '8.1'
+            dependencies: 'low'
           - php-version: '8.2'
             dependencies: 'low'
           - php-version: '8.3'
