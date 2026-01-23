@@ -101,6 +101,8 @@ jobs:
             dependencies: 'high'
           - php-version: '8.4'
             dependencies: 'high'
+          - php-version: '8.5'
+            dependencies: 'high'
       fail-fast: false
     steps:
       - name: "Git: Checkout"
@@ -159,10 +161,10 @@ jobs:
     steps:
       -   uses: actions/checkout@v4
 
-      -   name: "PHP: setup (8.4)"
+      -   name: "PHP: setup (8.5)"
           uses: shivammathur/setup-php@v2
           with:
-            php-version: 8.4
+            php-version: 8.5
             tools: symfony-cli
 
       -   name: "[Composer] Install dependencies"
