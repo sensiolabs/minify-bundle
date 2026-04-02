@@ -27,7 +27,7 @@ class MinifyInstallerTest extends TestCase
     {
         $httpClient = $this->createMock(HttpClientInterface::class);
         $httpClient->method('request')->willReturn($this->createMockResponse(500));
-        $installer = new MinifyInstaller('/tmp/minify/'.rand(5, 999), $httpClient);
+        $installer = new MinifyInstaller('/tmp/minify/'.rand(5, 999), null, $httpClient);
 
         $this->expectException(InstallException::class);
         $installer->install();

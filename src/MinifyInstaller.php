@@ -33,6 +33,7 @@ final class MinifyInstaller implements MinifierInstallerInterface
 
     public function __construct(
         private readonly string $installDirectory,
+        private readonly ?string $defaultVersion = null,
         ?HttpClientInterface $httpClient = null,
     ) {
         if (null === $httpClient && !class_exists(HttpClient::class)) {
@@ -46,6 +47,10 @@ final class MinifyInstaller implements MinifierInstallerInterface
     {
         if ($this->isInstalled() && !$force) {
             return;
+        }
+
+        if (self::VERSION_LATEST === $version && null !== $this->defaultVersion && '' !== $this->defaultVersion) {
+            $version = $this->defaultVersion;
         }
 
         $this->download($version);

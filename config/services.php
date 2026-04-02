@@ -27,6 +27,7 @@ return static function (ContainerConfigurator $container) {
         ->set('.sensiolabs_minify.minifier.minify_installer', MinifyInstaller::class)
             ->args([
                 abstract_arg('download_path'),
+                abstract_arg('download_version'),
                 service('http_client')->nullOnInvalid(),
             ])
 

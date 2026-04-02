@@ -39,6 +39,7 @@ final class SensiolabsMinifyBundle extends AbstractBundle
         $container->services()
             ->get('.sensiolabs_minify.minifier.minify_installer')
                 ->arg(0, $config['minify']['download_directory'])
+                ->arg(1, $config['minify']['version'])
 
             ->get('.sensiolabs_minify.minifier.minify_factory')
                 ->arg(0, $config['minify']['local_binary'])
@@ -119,6 +120,10 @@ final class SensiolabsMinifyBundle extends AbstractBundle
                         ->scalarNode('download_directory')
                             ->info('Directory to store the downloaded binary')
                             ->defaultValue('%kernel.project_dir%/var/minify')
+                        ->end()
+                        ->scalarNode('version')
+                            ->info('Minify version to download (null for latest)')
+                            ->defaultNull()
                         ->end()
                     ->end()
                 ->end()
