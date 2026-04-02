@@ -58,6 +58,7 @@ final class SensiolabsMinifyBundle extends AbstractBundle
         if (!$config['minify']['download_binary']) {
             $container->services()
                 ->remove('.sensiolabs_minify.minifier.minify_installer')
+                ->remove('.sensiolabs_minify.command.minify_install')
             ;
         }
 
