@@ -208,6 +208,9 @@ sensiolabs_minify:
 
         # the local path where the downloaded binary is stored
         download_directory: '%kernel.project_dir%/var/minify'
+
+        # the Minify version to download (default: null for latest)
+        version: null
 ```
 
 You can customize this configuration to use a local binary:
