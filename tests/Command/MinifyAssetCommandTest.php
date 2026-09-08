@@ -42,6 +42,8 @@ class MinifyAssetCommandTest extends TestCase
         $minifier->method('minify')->willReturn('minified content');
 
         $projectDir = realpath(__DIR__.'/../Fixtures');
+        $this->assertIsString($projectDir);
+
         $command = new MinifyAssetCommand($minifier, $projectDir);
         $tester = new CommandTester($command);
 

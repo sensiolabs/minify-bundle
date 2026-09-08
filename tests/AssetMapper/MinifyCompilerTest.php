@@ -80,7 +80,7 @@ class MinifyCompilerTest extends TestCase
         $this->assertTrue($minifierCompiler->supports($asset));
     }
 
-    public function testCompileReturnsMinifiedContentForCss()
+    public function testCompileReturnsMinifiedContentForCss(): void
     {
         $minifier = $this->createMock(MinifierInterface::class);
         $minifier->method('minify')->willReturn('minified content');
@@ -96,7 +96,7 @@ class MinifyCompilerTest extends TestCase
         $this->assertSame('minified content', $compiler->compile('input content', $asset, $assetMapper));
     }
 
-    public function testCompileReturnsMinifiedContentForJs()
+    public function testCompileReturnsMinifiedContentForJs(): void
     {
         $minifier = $this->createMock(MinifierInterface::class);
         $minifier->method('minify')->willReturn('minified content');
@@ -112,7 +112,7 @@ class MinifyCompilerTest extends TestCase
         $this->assertSame('minified content', $compiler->compile('input content', $asset, $assetMapper));
     }
 
-    public function testCompileThrowsRuntimeExceptionForInvalidType()
+    public function testCompileThrowsRuntimeExceptionForInvalidType(): void
     {
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('Invalid type "txt".');

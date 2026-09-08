@@ -36,7 +36,7 @@ jobs:
       - name: "Composer: validate"
         run: composer validate --strict
       - name: "Composer: install"
-        run: composer install --prefer-dist --no-progress --no-suggest
+        run: composer install --prefer-dist --no-progress
       - name: "Composer: audit"
         run: composer audit
   
@@ -63,12 +63,12 @@ jobs:
     steps:
       - name: "Git: checkout"
         uses: actions/checkout@v4
-      - name: "PHP: setup ${{ matrix.php-version }}"
+      - name: "PHP: setup 8.3"
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
           coverage: none
-          tools: phpstan
+          tools: composer
       - name: "Composer: cache config"
         id: composer-cache
         run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
@@ -81,11 +81,11 @@ jobs:
       - name: "Composer: validate"
         run: composer validate --strict
       - name: "Composer: install"
-        run: composer install --prefer-dist --no-progress --no-suggest
+        run: composer install --prefer-dist --no-progress
       - name: "PHPStan: version"
-        run: phpstan --version
+        run: vendor/bin/phpstan --version
       - name: "PHPStan: analyse"
-        run: phpstan analyse src/
+        run: vendor/bin/phpstan analyse -c phpstan.dist.neon
   
   tests:
     name: "Tests (PHP ${{ matrix.php-version }} ${{ matrix.dependencies }})"
@@ -130,9 +130,9 @@ jobs:
       - name: "Composer: install ${{ matrix.dependencies }} deps"
         run: |
           if [ "${{ matrix.dependencies }}" == "low" ]; then
-            composer update --prefer-lowest --prefer-dist --no-progress --no-suggest;
+            composer update --prefer-lowest --prefer-dist --no-progress;
           else
-            composer install --prefer-dist --no-progress --no-suggest;
+            composer install --prefer-dist --no-progress;
           fi
       - name: "PHPUnit: version"
         run: php vendor/bin/phpunit --version

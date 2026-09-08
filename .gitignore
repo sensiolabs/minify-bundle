@@ -2,6 +2,6 @@
 /.php-cs-fixer.cache
 /composer.lock
 /phpunit.xml
-/tests/Fixtures/config/
+/tests/Fixtures/config/reference.php
 /tests/Fixtures/var/
 /vendor/

@@ -91,7 +91,7 @@ EOF
             $outputArg = Path::join($this->projectDir, $outputArg);
         }
 
-        /** @var 'css'|'js' $typeArg */
+        /** @var string $typeArg */
         $typeArg = $input->getOption('type') ?? pathinfo($inputArg, PATHINFO_EXTENSION);
 
         if (!in_array($typeArg, [MinifierInterface::TYPE_CSS, MinifierInterface::TYPE_JS], true)) {

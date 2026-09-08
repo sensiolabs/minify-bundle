@@ -12,6 +12,7 @@ EOF;
 $finder = (new PhpCsFixer\Finder())
     ->in(__DIR__)
     ->exclude('tests/Fixtures/var')
+    ->notPath('tests/Fixtures/config/reference.php')
 ;
 
 return (new PhpCsFixer\Config())

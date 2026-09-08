@@ -33,7 +33,7 @@
         "symfony/process": "^6.4|^7.0|^8.0"
     },
     "require-dev": {
-        "phpstan/phpstan": "^1.12",
+        "phpstan/phpstan": "^2.2",
         "phpunit/phpunit": "^10.5",
         "symfony/asset-mapper": "^6.4|^7.0|^8.0",
         "symfony/console": "^6.4|^7.0|^8.0",
@@ -46,10 +46,14 @@
             "Sensiolabs\\MinifyBundle\\": "src/"
         }
     },
-      "autoload-dev": {
+    "autoload-dev": {
         "psr-4": {
             "Sensiolabs\\MinifyBundle\\Tests\\": "tests/"
-        }
+        },
+        "exclude-from-classmap": [
+            "/tests/Fixtures/var/",
+            "/tests/Fixtures/config/reference.php"
+        ]
     },
     "config": {
         "optimize-autoloader": true,

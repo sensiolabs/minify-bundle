@@ -8,3 +8,5 @@ parameters:
         - tests/
     excludePaths:
         - src/SensiolabsMinifyBundle.php
+        - tests/Fixtures/var/*
+        - tests/Fixtures/config/*.php

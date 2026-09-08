@@ -23,7 +23,7 @@ use Symfony\Component\Console\Tester\CommandTester;
 #[CoversClass(MinifyInstallCommand::class)]
 class MinifyInstallCommandTest extends KernelTestCase
 {
-    public function testMinifyInstallCommandInstallsBinaryWhenNotInstalled()
+    public function testMinifyInstallCommandInstallsBinaryWhenNotInstalled(): void
     {
         $minifyInstaller = $this->createMock(MinifierInstallerInterface::class);
         $minifyInstaller->method('isInstalled')->willReturn(false);
@@ -37,7 +37,7 @@ class MinifyInstallCommandTest extends KernelTestCase
         $this->assertStringContainsString('The Minify binary has been installed', $tester->getDisplay());
     }
 
-    public function testMinifyInstallCommandDoesNotReinstallBinaryWhenAlreadyInstalled()
+    public function testMinifyInstallCommandDoesNotReinstallBinaryWhenAlreadyInstalled(): void
     {
         $minifyInstaller = $this->createMock(MinifierInstallerInterface::class);
         $minifyInstaller->method('isInstalled')->willReturn(true);
@@ -51,7 +51,7 @@ class MinifyInstallCommandTest extends KernelTestCase
         $this->assertStringContainsString('The Minify binary is already installed', $tester->getDisplay());
     }
 
-    public function testMinifyInstallCommandReinstallsBinaryWhenForceOptionIsUsed()
+    public function testMinifyInstallCommandReinstallsBinaryWhenForceOptionIsUsed(): void
     {
         $minifyInstaller = $this->createMock(MinifierInstallerInterface::class);
         $minifyInstaller->method('isInstalled')->willReturn(true);
