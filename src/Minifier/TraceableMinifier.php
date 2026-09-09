@@ -15,6 +15,7 @@ namespace Sensiolabs\MinifyBundle\Minifier;
 
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
+use Sensiolabs\MinifyBundle\Minifier\Options\OptionsInterface;
 
 /**
  * @author Simon André <smn.andre@gmail.com>
@@ -27,6 +28,9 @@ final class TraceableMinifier implements MinifierInterface
     ) {
     }
 
+    /**
+     * @param OptionsInterface|null $options
+     */
     public function minify(string $input, string $type/* , ?OptionsInterface $options = null */): string
     {
         $options = \func_num_args() > 2 ? \func_get_arg(2) : null;

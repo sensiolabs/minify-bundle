@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.3.1
+
+- Add `@param OptionsInterface|null $options` PHPDoc annotations to `Minify::minify()` and `TraceableMinifier::minify()` to fix implicit nullable parameter deprecation warnings.
+
 ## 1.3.0
 
 - Add HTML support (`MinifierInterface::TYPE_HTML`) and `HtmlOptions::keepDocumentTags` to preserve the `html`, `head` and `body` tags (#41).

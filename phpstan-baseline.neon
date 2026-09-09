@@ -1,11 +1,25 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^PHPDoc tag @param references unknown parameter\\: \\$options$#"
+			message: '#^PHPDoc tag @param references unknown parameter\: \$options$#'
+			identifier: parameter.notFound
 			count: 1
 			path: src/Minifier/MinifierInterface.php
 
 		-
-			message: "#^Method Sensiolabs\\\\MinifyBundle\\\\Minifier\\\\MinifierInterface\\:\\:minify\\(\\) invoked with 3 parameters, 2 required\\.$#"
+			message: '#^Method Sensiolabs\\MinifyBundle\\Minifier\\MinifierInterface\:\:minify\(\) invoked with 3 parameters, 2 required\.$#'
+			identifier: arguments.count
 			count: 1
 			path: src/Minifier/TraceableMinifier.php
+
+		-
+			message: '#^PHPDoc tag @param references unknown parameter\: \$options$#'
+			identifier: parameter.notFound
+			count: 1
+			path: src/Minifier/TraceableMinifier.php
+
+		-
+			message: '#^PHPDoc tag @param references unknown parameter\: \$options$#'
+			identifier: parameter.notFound
+			count: 1
+			path: src/Minify.php

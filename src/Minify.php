@@ -28,6 +28,9 @@ final class Minify implements MinifierInterface
     ) {
     }
 
+    /**
+     * @param OptionsInterface|null $options
+     */
     public function minify(string $input, string $type/* , ?OptionsInterface $options = null */): string
     {
         $options = \func_num_args() > 2 ? \func_get_arg(2) : null;
